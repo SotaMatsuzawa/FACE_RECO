@@ -8,8 +8,7 @@ Face Recognition
 機械学習モデルの作成部分を担当した。
 
 主に、
- [ディープラーニングでザッカーバーグの顔を識別するAIを作る]
-(https://qiita.com/AkiyoshiOkano/items/72f3e4ba9caf514460ee)  
+ [ディープラーニングでザッカーバーグの顔を識別するAIを作る](https://qiita.com/AkiyoshiOkano/items/72f3e4ba9caf514460ee) 
 
 を参考にさせていただいた。
 
