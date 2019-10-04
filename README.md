@@ -20,9 +20,9 @@ Face Recognition
 
 
 ### Directory structure ディレクトリの構造
-* FACE_RECO<br>
-  * data<br>
-    * train<br>
+FACE_RECO<br>
+ data<br>
+  train<br>
     * test<br>
   * src<br>
     -main.py モデルを回すためのmain部分、モデルを作成し保存す<br>
