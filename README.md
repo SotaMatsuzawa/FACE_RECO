@@ -7,7 +7,7 @@ Face Recognition
 顔画像からおすすめの髪形をレコメンドするサービスを大学の授業で作ることになり、
 機械学習モデルの作成部分を担当した。
 
-主に、ディープラーニングでザッカーバーグの顔を識別するAIを作る（https://qiita.com/AkiyoshiOkano/items/72f3e4ba9caf514460ee）
+主に、[ディープラーニングでザッカーバーグの顔を識別するAIを作る]（https://qiita.com/AkiyoshiOkano/items/72f3e4ba9caf514460ee）
 を参考にさせていただいた。
 
 行った手順は、  
@@ -19,7 +19,7 @@ Face Recognition
 
 
 ### ディレクトリの構造
-/FACE_RECO<br>
+*/FACE_RECO<br>
     /data<br>
         /train<br>
         /test<br>
@@ -31,7 +31,7 @@ Face Recognition
     inference.py　モデルの学習部分<br>
     train_test_split.py　顔のみの画像をトレーニングデータとテストデータに分ける<br>
   /static<br>
-      /images<br>  
+      /images<br>
           /cut_face<br>
           /default<br>
           /face_detect<br>
