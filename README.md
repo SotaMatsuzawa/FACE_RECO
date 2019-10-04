@@ -1,10 +1,9 @@
 # FACE_RECO
 
-## Name
+## Name　名前
 Face Recognition
 
-## Overview
-**概要**<br>
+## Overview 概要
 顔画像からおすすめの髪形をレコメンドするサービスを大学の授業で作ることになり、
 機械学習モデルの作成部分を担当した。
 
@@ -20,7 +19,7 @@ Face Recognition
 である。  
 
 
-### ディレクトリの構造
+### Directory structure ディレクトリの構造
 * FACE_RECO<br>
   * data<br>
     * train<br>
