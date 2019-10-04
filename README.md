@@ -19,9 +19,9 @@ Face Recognition
 
 
 ### ディレクトリの構造
-/FACE_RECO  
-  /data  
-    /train  
+/FACE_RECO
+  /data
+    /train
     /test  
   /src  
     main.py モデルを回すためのmain部分、モデルを作成し保存する  
