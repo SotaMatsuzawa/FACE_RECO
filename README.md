@@ -21,7 +21,7 @@ Face Recognition
 
 ### Directory structure ディレクトリの構造
 FACE_RECO<br>
- data<br>
+　　data<br>
   train<br>
     * test<br>
   * src<br>
