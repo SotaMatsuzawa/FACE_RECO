@@ -25,7 +25,7 @@ Face Recognition
 　　　　/train<br>
 　　　　/test<br>
 　　/src<br>
-    　　-main.py モデルを回すためのmain部分、モデルを作成し保存す<br>
+    　　-main.py モデルを回すためのmain部分、モデルを作成し保存する<br>
     　　-eval.py　保存したモデルを使って新しい画像の判定をする<br>
     　　-face_reco.py　画像から顔を切り取って顔のみの画像を保存する<br>
     　　-gene_csv.py　データのラベリングを行うためのtxtファイルを出力する<br>
