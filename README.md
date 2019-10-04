@@ -22,7 +22,7 @@ Face Recognition
 /FACE_RECO
   /data
     /train
-    /test  
+     /test  
   /src  
     main.py モデルを回すためのmain部分、モデルを作成し保存する  
     eval.py　保存したモデルを使って新しい画像の判定をする  
