@@ -33,9 +33,9 @@ Face Recognition
     　　-train_test_split.py　顔のみの画像をトレーニングデータとテストデータに分ける<br>
 　　/static<br>
     　　/images<br>
-      　　/cut_face<br>
-      　　/default<br>
-      　　/face_detect<br>
+      　　　　/cut_face<br>
+      　　　　/default<br>
+      　　　　/face_detect<br>
       
     
 
