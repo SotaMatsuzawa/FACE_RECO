@@ -10,19 +10,19 @@ Created on Mon Sep 30 11:02:57 2019
 このファイルはtensorflowに読み込ませるデータのラベル付けを
 txtファイルとして保存するためのもの
 ラベルは
-逆三角顔：０
-ホームベース顔：１
+卵顔：０
+逆三角：１
 丸顔：２
-四角顔：３
-卵顔：４
+ホームベース顔：３
+四角顔：４
 
 
 """
 
 import cv2
 import csv
-path_list=["\\gyaku","\\home","\\maru","\\shikaku","\\tamago"]
-path_dir={"\\gyaku":0,"\\home":1,"\\maru":2,"\\shikaku":3,"\\tamago":4}
+path_list=["\\tamago","\\gyaku","\\maru","\\home","\\shikaku"]
+path_dir={"\\tamago":0,"\\gyaku":1,"\\maru":2,"\\home":3,"\\shikaku":4}
 
 t=["\\train","\\test"]
 #img_path=r"C:\Users\souta\Desktop\Face"

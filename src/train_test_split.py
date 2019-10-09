@@ -19,7 +19,7 @@ Created on Sat Sep 28 22:42:29 2019
 import cv2
 path_list=["\\gyaku_FACE","\\homebase_FACE","\\maru_FACE","\\sikaku_FACE","\\tamago_FACE"]
 save_list=["\\gyaku","\\home","\\maru","\\shikaku","\\tamago"]
-img_path=r"C:\Users\souta\Desktop\Face"
+img_path=r"C:\Users\souta\Desktop\Face_RECO"
 
 
 save_path_train=r"C:\Users\souta\Desktop\FACE_RECO\data\train"
