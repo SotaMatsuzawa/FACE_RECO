@@ -17,21 +17,21 @@ Created on Sat Sep 28 22:42:29 2019
 
 
 import cv2
-path_list=["\\gyaku_FACE","\\homebase_FACE","\\maru_FACE","\\sikaku_FACE","\\tamago_FACE"]
+path_list=["\\gyaku_FACE","\\home_FACE","\\maru_FACE","\\shikaku_FACE","\\tamago_FACE"]
 save_list=["\\gyaku","\\home","\\maru","\\shikaku","\\tamago"]
-img_path=r"C:\Users\souta\Desktop\Face_RECO"
+img_path=r"C:\Users\souta\Desktop\Face_RECO\FACE_2"
 
 
-save_path_train=r"C:\Users\souta\Desktop\FACE_RECO\data\train"
-save_path_test=r"C:\Users\souta\Desktop\FACE_RECO\data\test"
+save_path_train=r"C:\Users\souta\Desktop\FACE_RECO\data_3\train"
+save_path_test=r"C:\Users\souta\Desktop\FACE_RECO\data_3\test"
 
-image_count=500
+image_count=1395
 
 for l in range(len(path_list)):
     img_num=0
     save_num=0
     for i in range(image_count):
-        img = cv2.imread(img_path+path_list[l]+"\\cutted"+str(img_num)+".jpg", cv2.IMREAD_COLOR)
+        img = cv2.imread(img_path+path_list[l]+"\\"+str(img_num)+".jpg", cv2.IMREAD_COLOR)
         img_num+=1
         if img is None:
              print('image' + img_path+str(img_num)+".jpg" + ':No')

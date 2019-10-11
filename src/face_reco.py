@@ -14,22 +14,24 @@ import cv2
 #画像の読み込みから表示まで
 face_cascade = cv2.CascadeClassifier(r'C:\Users\souta\Anaconda3\Lib\site-packages\cv2\data\haarcascade_frontalface_default.xml')
 
-img_path_0=r"C:\Users\souta\Desktop\FACE_RECO\TAMAGO/"
-img_path_1=r"C:\Users\souta\Desktop\FACE_RECO\TAMAGO\00"
+img_path_0=r"C:\Users\souta\Desktop\FACE_RECO\SHIKAKU/"
+img_path_1=r"C:\Users\souta\Desktop\FACE_RECO\SHIKAKU\00"
 
 
-#os.makedirs("./Face")
-save_path=r"C:\Users\souta\Desktop\FACE_RECO\tamago_FACE/"
-#集めた画像の枚数(def=1)
-image_count=1
+
+save_path=r"C:\Users\souta\Desktop\FACE_RECO\shikaku_FACE/"
+#集めた画像の枚数
+image_count=120
 #顔検知に成功した数(def=0)
 face_detect_count=0
 
-for num_face in range(1):
+for num_face in range(11):#各顔タイプを集めるのに使った芸能人の人数
     if num_face==0:
         img_path_=img_path_0
-    else:
+    elif num_face<10 and num_face>0:
         img_path_=img_path_1+str(num_face)
+    else:
+        img_path_=img_path_+"0"+str(num_face)
     img_num=1
     for i in range(image_count):
         if img_num<10:
@@ -57,6 +59,6 @@ for num_face in range(1):
                     cv2.imwrite(save_path + str(face_detect_count) + '.jpg',img[y:y+h,  x:x+w])
                     face_detect_count = face_detect_count + 1
             else:
-                print('image' + str(i) + ':NoFace') 
+                print('image' +img_path+ str(img_num) + ':NoFace') 
         
-print("顔画像の切り取り作業、正常に動作")     
+print("顔画像の切り取り作業終了")     
