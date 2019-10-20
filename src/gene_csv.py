@@ -8,7 +8,7 @@ Created on Mon Sep 30 11:02:57 2019
 
 """
 
-data_3に保存するるver
+data_5に保存するるver
 
 このファイルはtensorflowに読み込ませるデータのラベル付けを
 txtファイルとして保存するためのもの
@@ -30,9 +30,9 @@ path_dir={"\\tamago":0,"\\gyaku":1,"\\maru":2,"\\home":3,"\\shikaku":4}
 t=["\\train","\\test"]
 #img_path=r"C:\Users\souta\Desktop\Face"
 
-write_path=r"C:\Users\souta\Desktop\FACE_RECO\data_3"
-path_train=r"C:\Users\souta\Desktop\FACE_RECO\data_3\train\data.csv"
-path_test=r"C:\Users\souta\Desktop\FACE_RECO\data_3\test\data.csv"
+write_path=r"C:\Users\souta\Desktop\FACE_RECO\data_5"
+path_train=r"C:\Users\souta\Desktop\FACE_RECO\data_5\train\data.csv"
+path_test=r"C:\Users\souta\Desktop\FACE_RECO\data_5\test\data.csv"
 
 
 for t_type in t:#train or test

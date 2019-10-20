@@ -19,7 +19,7 @@ img_path_1=r"C:\Users\souta\Desktop\FACE_RECO\SHIKAKU\00"
 
 
 
-save_path=r"C:\Users\souta\Desktop\FACE_RECO\shikaku_FACE/"
+save_path=r"C:\Users\souta\Desktop\FACE_RECO\FACE_3\shikaku_FACE/"
 #集めた画像の枚数
 image_count=120
 #顔検知に成功した数(def=0)

@@ -11,6 +11,9 @@ Created on Wed Oct  2 16:45:30 2019
 このファイルはモデルを再利用して
 画像を入力として
 判定結果と切り取った顔画像を出力する
+
+
+
 """
 
 import numpy as np
@@ -34,39 +37,13 @@ FACE_TYPES = {
 }
 
 #指定した画像(img_path)を学習結果(ckpt_path)を用いて判定する
-def evaluation(img_path, ckpt_path):
+def evaluation(img_path, ckpt_path,i):
     # GraphのReset
     tf.compat.v1.reset_default_graph()#new verに変更
     # 画像を開く
     f = open(img_path, 'r')
-    # 画像読み込み
-    img = cv2.imread(img_path, cv2.IMREAD_COLOR)
-    # モノクロ画像に変換
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    face = faceCascade.detectMultiScale(gray, 1.1, 3)
-    if len(face) > 0:
-        for rect in face:
-            # 加工した画像に何でもいいので適当な名前をつけたかった。日付秒数とかでいいかも
-            date_str = str(datetime.datetime.now())
-            date_str=date_str.replace('.','-').replace(':',"-")
-            # 顔部分を赤線で囲う
-            cv2.rectangle(img, tuple(rect[0:2]), tuple(rect[0:2]+rect[2:4]), (0, 0, 255), thickness=2)
-            # 顔部分を赤線で囲った画像の保存先
-            face_detect_img_path = r'C:\Users\souta\Desktop\FACE_RECO\static\images\face_detect/' + date_str + '.jpg'
-            # 顔部分を赤線で囲った画像の保存
-            cv2.imwrite(face_detect_img_path, img)
-            x = rect[0]
-            y = rect[1]
-            w = rect[2]
-            h = rect[3]
-            # 検出した顔を切り抜いた画像を保存
-            cv2.imwrite(r'C:\Users\souta\Desktop\FACE_RECO\static\images\cut_face/' + date_str + '.jpg', img[y:y+h, x:x+w])
-            # TensorFlowへ渡す切り抜いた顔画像
-            target_image_path = r'C:\Users\souta\Desktop\FACE_RECO\static\images\cut_face/' + date_str + '.jpg'
-    else:
-        # 顔が見つからなければ処理終了
-        print("image:NoFace")
-        return
+    # TensorFlowへ渡す切り抜いた顔画像
+    target_image_path = img_path
     f.close()
 
     f = open(target_image_path, 'r')
@@ -74,6 +51,7 @@ def evaluation(img_path, ckpt_path):
     image = []
     # 画像読み込み
     img = cv2.imread(target_image_path)
+    img_pre = cv2.imread(target_image_path)    
     # 28px*28pxにリサイズ
     img = cv2.resize(img, (28, 28))
     # 画像情報を一列にした後、0-1のfloat値にする
@@ -107,18 +85,26 @@ def evaluation(img_path, ckpt_path):
             'rate': rate})
     # パーセンテージの高い順にソート
     rank = sorted(humans, key=lambda x: x['rate'], reverse=True)
-
+    
     # 判定結果と加工した画像のpathを返す
     """
     ---------------------------------------------
     """
     print(rank)
-    #ans=rank[0]
+    ans=rank[0]
     #print(ans["label"],ans["name"])
-    return [rank, face_detect_img_path, target_image_path]    
+    cv2.imwrite(r'C:\Users\souta\Desktop\FACE_RECO\static\images'+"\\"+ans["name"]+"\\"+'gyaku'+str(i)+'.jpg', img_pre)
+    
+    return [rank,target_image_path]    
     """  
     ---------------------------------------------
     """
 # コマンドラインからのテスト用
 if __name__ == '__main__':
-  evaluation(r'C:\Users\souta\Desktop\FACE_RECO\static\images\default\sample7.jpg', r'C:\Users\souta\Desktop\FACE_RECO\model_ver4\model4.ckpt')
+    for i in range(332):
+        path=r'C:\Users\souta\Desktop\FACE_RECO\data_4\test\gyaku\gyaku'+str(i)+'.jpg'
+        img = cv2.imread(path,cv2.IMREAD_COLOR)
+        if img is None:
+            print(path+":None")
+        else:
+            evaluation(path, r'C:\Users\souta\Desktop\FACE_RECO\model_ver4\model4.ckpt',i)
