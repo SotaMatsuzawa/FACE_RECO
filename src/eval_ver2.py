@@ -29,11 +29,11 @@ faceCascade = cv2.CascadeClassifier(cascade_path)
 
 # 識別ラベルと各ラベル番号に対応する名前
 FACE_TYPES = {
-  0:"gyaku",
-  1: "home",
+  0:"tamago",
+  1: "gyaku",
   2: "maru",
-  3:"shikaku",
-  4:"tamago"
+  3:"home",
+  4:"shikaku"
 }
 
 #指定した画像(img_path)を学習結果(ckpt_path)を用いて判定する

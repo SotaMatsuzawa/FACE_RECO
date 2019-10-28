@@ -13,6 +13,7 @@ Created on Wed Oct  2 16:45:30 2019
 判定結果と切り取った顔画像を出力する
 """
 
+
 import numpy as np
 import cv2
 import tensorflow as tf
@@ -26,11 +27,9 @@ faceCascade = cv2.CascadeClassifier(cascade_path)
 
 # 識別ラベルと各ラベル番号に対応する名前
 FACE_TYPES = {
-  0:"gyaku",
-  1: "home",
-  2: "maru",
-  3:"shikaku",
-  4:"tamago"
+  0:"tamago",
+  1: "gyaku",
+  2:"home"
 }
 
 #指定した画像(img_path)を学習結果(ckpt_path)を用いて判定する
@@ -121,4 +120,4 @@ def evaluation(img_path, ckpt_path):
     """
 # コマンドラインからのテスト用
 if __name__ == '__main__':
-  evaluation(r'C:\Users\souta\Desktop\FACE_RECO\static\images\default\sample7.jpg', r'C:\Users\souta\Desktop\FACE_RECO\model_ver4\model4.ckpt')
+  evaluation(r'C:\Users\souta\Desktop\FACE_RECO\static\images\default\sample2.jpg', r'C:\Users\souta\Desktop\FACE_RECO\model_ver6\model6.ckpt')

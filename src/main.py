@@ -13,7 +13,7 @@ Created on Wed Sep 25 19:45:23 2019
 トレーニング回数を100=>50回に減らした
 gitで実行
 
-data_3用
+data_6用
 
 """
 import sys
@@ -25,7 +25,7 @@ import tensorflow.python.platform
 import inference as inf
 
 # 識別ラベルの数(今回は5つ)
-NUM_CLASSES = 5
+NUM_CLASSES = 3
 # 学習する時の画像のサイズ(px)
 IMAGE_SIZE = 28
 # 画像の次元数(28px*28px*3(カラー))
@@ -38,11 +38,11 @@ FLAGS = flags.FLAGS
 path=r'C:\Users\souta\Desktop\FACE_RECO'
 
 # 学習用データ
-flags.DEFINE_string('train', path+'\\data_5\\train\\data.txt', 'File name of train data')
+flags.DEFINE_string('train', path+'\\data_6\\train\\data.txt', 'File name of train data')
 # 検証用データ
-flags.DEFINE_string('test',path+'\\data_5\\test\\data.txt', 'File name of train data')
+flags.DEFINE_string('test',path+'\\data_6\\test\\data.txt', 'File name of train data')
 # TensorBoardのデータ保存先フォルダ
-flags.DEFINE_string('train_dir',path+'\\data_5', 'Directory to put the training data.')
+flags.DEFINE_string('train_dir',path+'\\data_6', 'Directory to put the training data.')
 # 学習訓練の試行回数
 flags.DEFINE_integer('max_steps', 100, 'Number of steps to run trainer.')
 # 1回の学習で何枚の画像を使うか(20=>50)
@@ -190,4 +190,4 @@ if __name__ == '__main__':
 
     # データを学習して最終的に出来上がったモデルを保存
     # "model.ckpt"は出力されるファイル名
-    save_path = saver.save(sess, "model5.ckpt")
+    save_path = saver.save(sess, "model6.ckpt")
