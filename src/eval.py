@@ -11,10 +11,8 @@ Created on Wed Oct  2 16:45:30 2019
 このファイルはモデルを再利用して
 画像を入力として
 判定結果と切り取った顔画像を出力する
-
-
-
 """
+
 
 import numpy as np
 import cv2
@@ -29,11 +27,9 @@ faceCascade = cv2.CascadeClassifier(cascade_path)
 
 # 識別ラベルと各ラベル番号に対応する名前
 FACE_TYPES = {
-  0:"gyaku",
-  1: "home",
-  2: "maru",
-  3:"shikaku",
-  4:"tamago"
+  0:"tamago",
+  1: "gyaku",
+  2:"home"
 }
 
 #指定した画像(img_path)を学習結果(ckpt_path)を用いて判定する
@@ -52,7 +48,7 @@ def evaluation(img_path, ckpt_path):
             # 加工した画像に何でもいいので適当な名前をつけたかった。日付秒数とかでいいかも
             date_str = str(datetime.datetime.now())
             date_str=date_str.replace('.','-').replace(':',"-")
-            # 顔部分を赤線で書こう
+            # 顔部分を赤線で囲う
             cv2.rectangle(img, tuple(rect[0:2]), tuple(rect[0:2]+rect[2:4]), (0, 0, 255), thickness=2)
             # 顔部分を赤線で囲った画像の保存先
             face_detect_img_path = r'C:\Users\souta\Desktop\FACE_RECO\static\images\face_detect/' + date_str + '.jpg'
@@ -124,4 +120,4 @@ def evaluation(img_path, ckpt_path):
     """
 # コマンドラインからのテスト用
 if __name__ == '__main__':
-  evaluation(r'C:\Users\souta\Desktop\FACE_RECO\static\images\default\sample.jpg', r'C:\Users\souta\Desktop\FACE_RECO\model_ver1\model1.ckpt')
+  evaluation(r'C:\Users\souta\Desktop\FACE_RECO\static\images\default\sample2.jpg', r'C:\Users\souta\Desktop\FACE_RECO\model_ver6\model6.ckpt')

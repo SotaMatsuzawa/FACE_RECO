@@ -11,7 +11,9 @@ Created on Wed Sep 25 19:45:23 2019
 ファイルの読み込みとかデータの成形とかを行っている
 
 トレーニング回数を100=>50回に減らした
+gitで実行
 
+data_6用
 
 """
 import sys
@@ -23,7 +25,7 @@ import tensorflow.python.platform
 import inference as inf
 
 # 識別ラベルの数(今回は5つ)
-NUM_CLASSES = 5
+NUM_CLASSES = 3
 # 学習する時の画像のサイズ(px)
 IMAGE_SIZE = 28
 # 画像の次元数(28px*28px*3(カラー))
@@ -36,14 +38,14 @@ FLAGS = flags.FLAGS
 path=r'C:\Users\souta\Desktop\FACE_RECO'
 
 # 学習用データ
-flags.DEFINE_string('train', path+'\\data\\train\\data.txt', 'File name of train data')
+flags.DEFINE_string('train', path+'\\data_6\\train\\data.txt', 'File name of train data')
 # 検証用データ
-flags.DEFINE_string('test',path+'\\data\\test\\data.txt', 'File name of train data')
+flags.DEFINE_string('test',path+'\\data_6\\test\\data.txt', 'File name of train data')
 # TensorBoardのデータ保存先フォルダ
-flags.DEFINE_string('train_dir',path+'\\data', 'Directory to put the training data.')
+flags.DEFINE_string('train_dir',path+'\\data_6', 'Directory to put the training data.')
 # 学習訓練の試行回数
-flags.DEFINE_integer('max_steps', 50, 'Number of steps to run trainer.')
-# 1回の学習で何枚の画像を使うか
+flags.DEFINE_integer('max_steps', 100, 'Number of steps to run trainer.')
+# 1回の学習で何枚の画像を使うか(20=>50)
 flags.DEFINE_integer('batch_size', 20, 'Batch size Must divide evenly into the dataset sizes.')
 # 学習率、小さすぎると学習が進まないし、大きすぎても誤差が収束しなかったり発散したりしてダメとか。繊細
 flags.DEFINE_float('learning_rate', 1e-4, 'Initial learning rate.')
@@ -64,8 +66,7 @@ def loss(logits, labels):
 
 # 誤差(loss)を元に誤差逆伝播を用いて設計した学習モデルを訓練する
 # 裏側何が起きているのかよくわかってないが、学習モデルの各層の重み(w)などを
-# 誤差を元に最適化してパラメーターを調整しているという理解(?)
-# (誤差逆伝播は「人工知能は人間を超えるか」書籍の説明が神)
+# 誤差を元に最適化してパラメーターを調整しているという理解
 def training(loss, learning_rate):
     #この関数がその当たりの全てをやってくれる様
     train_step = tf.train.AdamOptimizer(learning_rate).minimize(loss)
@@ -189,4 +190,4 @@ if __name__ == '__main__':
 
     # データを学習して最終的に出来上がったモデルを保存
     # "model.ckpt"は出力されるファイル名
-    save_path = saver.save(sess, "model3.ckpt")
+    save_path = saver.save(sess, "model6.ckpt")
