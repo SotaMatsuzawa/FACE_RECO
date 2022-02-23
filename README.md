@@ -1,6 +1,6 @@
 # FACE_RECO
 
-## Name　名前
+## PJT Name　
 Face Recognition
 
 ## Overview 概要
